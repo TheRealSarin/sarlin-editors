@@ -1,0 +1,60 @@
+{
+  "name": "sarlin-language",
+  "displayName": "Sarlin Language",
+  "description": "Language support for Sarlin source files.",
+  "version": "0.1.9",
+  "publisher": "sarlin",
+  "license": "UNLICENSED",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Themes"
+  ],
+  "scripts": {
+    "package": "vsce package --no-dependencies --allow-missing-repository --skip-license --out sarlin-language.vsix"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "3.6.2"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "sarlin",
+        "aliases": [
+          "Sarlin",
+          "sarlin"
+        ],
+        "extensions": [
+          ".sar"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/sarlin-file-light.svg",
+          "dark": "./icons/sarlin-file-dark.svg"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "sarlin",
+        "scopeName": "source.sarlin",
+        "path": "./syntaxes/sarlin.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.block.c": "c",
+          "meta.embedded.block.cpp": "cpp",
+          "meta.embedded.block.rust": "rust"
+        }
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "sarlin",
+        "label": "Sarlin",
+        "path": "./icons/sarlin-icon-theme.json"
+      }
+    ]
+  },
+  "icon": "icon.png"
+}

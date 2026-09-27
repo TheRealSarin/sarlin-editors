@@ -1,0 +1,40 @@
+name: Editor packages CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  vscodium:
+    name: Package VS Code and VSCodium extension
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out editor sources
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: vscodium/package-lock.json
+
+      - name: Install extension packaging tools
+        working-directory: vscodium
+        run: npm ci
+
+      - name: Package the extension
+        working-directory: vscodium
+        run: npm run package
+
+      - name: Preserve the extension package
+        uses: actions/upload-artifact@v4
+        with:
+          name: sarlin-language-extension
+          path: vscodium/sarlin-language.vsix
+          if-no-files-found: error

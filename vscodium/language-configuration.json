@@ -1,0 +1,43 @@
+{
+  "comments": {
+    "lineComment": "#"
+  },
+  "brackets": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"]
+  ],
+  "autoClosingPairs": [
+    { "open": "{", "close": "}" },
+    { "open": "[", "close": "]" },
+    { "open": "(", "close": ")" },
+    { "open": "\"", "close": "\"", "notIn": ["string"] }
+  ],
+  "surroundingPairs": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"],
+    ["\"", "\""]
+  ],
+  "wordPattern": "[A-Za-z_][A-Za-z0-9_]*",
+  "indentationRules": {
+    "increaseIndentPattern": "^(?:(?!#).)*(?:\\{[^}]*|\\[[^\\]]*)$|^\\s*external\\s+\\w+\\s+func\\b",
+    "decreaseIndentPattern": "^\\s*(?:[}\\]]|end\\s+external\\b)"
+  },
+  "onEnterRules": [
+    {
+      "beforeText": "^\\s*####.*$",
+      "action": { "indent": "none", "appendText": "#### " }
+    },
+    {
+      "beforeText": "^\\s*##(?!#).*$",
+      "action": { "indent": "none", "appendText": "## " }
+    }
+  ],
+  "folding": {
+    "markers": {
+      "start": "^\\s*(?:###\\s*$|external\\s+\\w+\\s+func\\b)",
+      "end": "^\\s*(?:###\\s*$|end\\s+external\\s*$)"
+    }
+  }
+}

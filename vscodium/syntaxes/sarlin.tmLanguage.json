@@ -1,0 +1,347 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Sarlin",
+  "scopeName": "source.sarlin",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#externalFunctions"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#signalDeclarations"
+    },
+    {
+      "include": "#callableDeclarations"
+    },
+    {
+      "include": "#emitStatements"
+    },
+    {
+      "include": "#functionDeclarations"
+    },
+    {
+      "include": "#typeDeclarations"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#declarations"
+    },
+    {
+      "include": "#standardNamespaces"
+    },
+    {
+      "include": "#types"
+    },
+    {
+      "include": "#booleans"
+    },
+    {
+      "include": "#durations"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#builtinFunctions"
+    },
+    {
+      "include": "#memberFunctions"
+    },
+    {
+      "include": "#functionCalls"
+    },
+    {
+      "include": "#userTypes"
+    },
+    {
+      "include": "#operators"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.documentation.file.sarlin",
+          "match": "^\\s*####.*$"
+        },
+        {
+          "name": "comment.block.sarlin",
+          "begin": "^\\s*###\\s*$",
+          "end": "^\\s*###\\s*$"
+        },
+        {
+          "name": "comment.line.documentation.sarlin",
+          "match": "##(?!#).*$"
+        },
+        {
+          "name": "comment.line.number-sign.sarlin",
+          "match": "#(?!#).*$"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.sarlin",
+      "begin": "\"",
+      "end": "\""
+    },
+    "externalFunctions": {
+      "patterns": [
+        {
+          "include": "#externalFunctionC"
+        },
+        {
+          "include": "#externalFunctionCpp"
+        },
+        {
+          "include": "#externalFunctionRust"
+        },
+        {
+          "include": "#externalFunctionUnknown"
+        }
+      ]
+    },
+    "externalFunctionC": {
+      "begin": "^\\s*(external)\\s+(C)\\s+(func)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*(?=\\()",
+      "end": "^\\s*(end\\s+external)\\s*$",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.external.sarlin"
+        },
+        "2": {
+          "name": "entity.name.class.external-language.sarlin"
+        },
+        "3": {
+          "name": "keyword.declaration.function.sarlin"
+        },
+        "4": {
+          "name": "entity.name.function.sarlin"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "keyword.control.external.sarlin"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#externalSignature"
+        },
+        {
+          "include": "source.c"
+        }
+      ]
+    },
+    "externalFunctionCpp": {
+      "begin": "^\\s*(external)\\s+(Cpp)\\s+(func)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*(?=\\()",
+      "end": "^\\s*(end\\s+external)\\s*$",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.external.sarlin"
+        },
+        "2": {
+          "name": "entity.name.class.external-language.sarlin"
+        },
+        "3": {
+          "name": "keyword.declaration.function.sarlin"
+        },
+        "4": {
+          "name": "entity.name.function.sarlin"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "keyword.control.external.sarlin"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#externalSignature"
+        },
+        {
+          "include": "source.cpp"
+        }
+      ]
+    },
+    "externalFunctionRust": {
+      "begin": "^\\s*(external)\\s+(Rust)\\s+(func)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*(?=\\()",
+      "end": "^\\s*(end\\s+external)\\s*$",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.external.sarlin"
+        },
+        "2": {
+          "name": "entity.name.class.external-language.sarlin"
+        },
+        "3": {
+          "name": "keyword.declaration.function.sarlin"
+        },
+        "4": {
+          "name": "entity.name.function.sarlin"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "keyword.control.external.sarlin"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#externalSignature"
+        },
+        {
+          "include": "source.rust"
+        }
+      ]
+    },
+    "externalFunctionUnknown": {
+      "begin": "^\\s*(external)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s+(func)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*(?=\\()",
+      "end": "^\\s*(end\\s+external)\\s*$",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.external.sarlin"
+        },
+        "2": {
+          "name": "invalid.illegal.external-language.sarlin"
+        },
+        "3": {
+          "name": "keyword.declaration.function.sarlin"
+        },
+        "4": {
+          "name": "entity.name.function.sarlin"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "keyword.control.external.sarlin"
+        }
+      }
+    },
+    "externalSignature": {
+      "begin": "\\G\\(",
+      "end": "$",
+      "patterns": [
+        {
+          "include": "#types"
+        },
+        {
+          "name": "punctuation.separator.sarlin",
+          "match": "[(),]"
+        },
+        {
+          "name": "variable.parameter.sarlin",
+          "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b"
+        }
+      ]
+    },
+    "signalDeclarations": {
+      "match": "\\b(signal)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+      "captures": {
+        "1": {
+          "name": "keyword.declaration.signal.sarlin"
+        },
+        "2": {
+          "name": "entity.name.function.signal.sarlin"
+        }
+      }
+    },
+    "callableDeclarations": {
+      "match": "\\b(callable)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+      "captures": {
+        "1": {
+          "name": "keyword.declaration.callable.sarlin"
+        },
+        "2": {
+          "name": "variable.other.callable.sarlin"
+        }
+      }
+    },
+    "emitStatements": {
+      "match": "\\b(emit)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+      "captures": {
+        "1": {
+          "name": "keyword.control.emit.sarlin"
+        },
+        "2": {
+          "name": "entity.name.function.signal.sarlin"
+        }
+      }
+    },
+    "functionDeclarations": {
+      "match": "\\b(func)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+      "captures": {
+        "1": {
+          "name": "keyword.declaration.function.sarlin"
+        },
+        "2": {
+          "name": "entity.name.function.sarlin"
+        }
+      }
+    },
+    "typeDeclarations": {
+      "match": "\\b(class|define)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+      "captures": {
+        "1": {
+          "name": "keyword.declaration.sarlin"
+        },
+        "2": {
+          "name": "entity.name.type.sarlin"
+        }
+      }
+    },
+    "keywords": {
+      "name": "keyword.control.sarlin",
+      "match": "\\b(if|else|while|for|in|break|continue|return|and|or|not|emit)\\b"
+    },
+    "declarations": {
+      "name": "keyword.declaration.sarlin",
+      "match": "\\b(local|var|const|class|define|as|external|callable|signal|func)\\b"
+    },
+    "types": {
+      "name": "storage.type.sarlin",
+      "match": "\\b(int8|int16|int32|int64|uint8|uint16|uint32|uint64|float32|float64|bool|string|dictionary|callable|signal|Time)\\b"
+    },
+    "booleans": {
+      "name": "constant.language.boolean.sarlin",
+      "match": "\\b(true|false)\\b"
+    },
+    "durations": {
+      "name": "constant.numeric.duration.sarlin",
+      "match": "\\b[0-9]+(?::[0-9]+)+\\b"
+    },
+    "numbers": {
+      "name": "constant.numeric.sarlin",
+      "match": "\\b[0-9]+(?:\\.[0-9]+)?\\b"
+    },
+    "standardNamespaces": {
+      "name": "support.class.builtin.sarlin",
+      "match": "\\b(file|directory|path|Time|JSON|CSV)\\b(?=\\s*\\.)"
+    },
+    "builtinFunctions": {
+      "name": "support.function.builtin.sarlin",
+      "match": "\\b(print|absolute|minimum|maximum|round_up|round_down|round|square_root|power)(?=\\s*\\()"
+    },
+    "memberFunctions": {
+      "name": "support.function.member.sarlin",
+      "match": "(?<=\\.)(length|is_empty|contains|add|insert|remove_at|clear|duplicate_deep|duplicate|get|remove|keys|values|to_upper|to_lower|trim|replace|split|starts_with|ends_with|new|connect|disconnect|exists|read|write|append_line|append|ensure|size|create|list|join|name|extension|parent|absolute|countdown|stopwatch|get_local|start|pause|resume|stop|restart|remaining|elapsed|running|paused|finished|parse|stringify)\\b"
+    },
+    "functionCalls": {
+      "name": "entity.name.function.call.sarlin",
+      "match": "\\b[A-Za-z_][A-Za-z0-9_]*(?=\\s*\\()"
+    },
+    "userTypes": {
+      "name": "entity.name.type.sarlin",
+      "match": "\\b[A-Z][A-Za-z0-9_]*\\b"
+    },
+    "operators": {
+      "name": "keyword.operator.sarlin",
+      "match": "==|!=|>=|<=|[+*/%=<>-]"
+    }
+  }
+}

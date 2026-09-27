@@ -1,0 +1,26 @@
+{
+  "information_for_contributors": "File icon theme for Sarlin. VS Code has no way to add a single icon to another theme, so this theme must be selected to see the .sar icon.",
+  "hidesExplorerArrows": false,
+  "iconDefinitions": {
+    "_sarlin_dark": { "iconPath": "./sarlin-file-dark.svg" },
+    "_sarlin_light": { "iconPath": "./sarlin-file-light.svg" },
+    "_file_dark": { "iconPath": "./file-dark.svg" },
+    "_file_light": { "iconPath": "./file-light.svg" }
+  },
+  "file": "_file_dark",
+  "fileExtensions": {
+    "sar": "_sarlin_dark"
+  },
+  "fileNames": {
+    "sarlin.project": "_sarlin_dark"
+  },
+  "light": {
+    "file": "_file_light",
+    "fileExtensions": {
+      "sar": "_sarlin_light"
+    },
+    "fileNames": {
+      "sarlin.project": "_sarlin_light"
+    }
+  }
+}
