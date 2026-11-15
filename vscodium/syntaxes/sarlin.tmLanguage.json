@@ -16,6 +16,9 @@
       "include": "#signalDeclarations"
     },
     {
+      "include": "#callableShapeDeclarations"
+    },
+    {
       "include": "#callableDeclarations"
     },
     {
@@ -43,7 +46,16 @@
       "include": "#booleans"
     },
     {
+      "include": "#nullLiteral"
+    },
+    {
+      "include": "#selfReference"
+    },
+    {
       "include": "#durations"
+    },
+    {
+      "include": "#hexNumbers"
     },
     {
       "include": "#numbers"
@@ -251,6 +263,17 @@
         }
       }
     },
+    "callableShapeDeclarations": {
+      "match": "\\b(callable)\\s+([A-Za-z_][A-Za-z0-9_]*)(?=\\s*\\()",
+      "captures": {
+        "1": {
+          "name": "keyword.declaration.callable.sarlin"
+        },
+        "2": {
+          "name": "entity.name.type.callable.sarlin"
+        }
+      }
+    },
     "callableDeclarations": {
       "match": "\\b(callable)\\s+([A-Za-z_][A-Za-z0-9_]*)",
       "captures": {
@@ -297,7 +320,7 @@
     },
     "keywords": {
       "name": "keyword.control.sarlin",
-      "match": "\\b(if|else|while|for|in|break|continue|return|and|or|not|emit)\\b"
+      "match": "\\b(if|else|while|for|in|break|continue|to|return|and|or|not|emit)\\b"
     },
     "declarations": {
       "name": "keyword.declaration.sarlin",
@@ -314,6 +337,18 @@
     "durations": {
       "name": "constant.numeric.duration.sarlin",
       "match": "\\b[0-9]+(?::[0-9]+)+\\b"
+    },
+    "hexNumbers": {
+      "name": "constant.numeric.hex.sarlin",
+      "match": "\\b0x[0-9A-Fa-f]+\\b"
+    },
+    "nullLiteral": {
+      "name": "constant.language.null.sarlin",
+      "match": "\\bnull\\b"
+    },
+    "selfReference": {
+      "name": "variable.language.self.sarlin",
+      "match": "\\bself\\b"
     },
     "numbers": {
       "name": "constant.numeric.sarlin",
