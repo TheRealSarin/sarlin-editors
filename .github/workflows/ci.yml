@@ -38,3 +38,39 @@ jobs:
           name: sarlin-language-extension
           path: vscodium/sarlin-language.vsix
           if-no-files-found: error
+
+  publish:
+    name: Publish the extension release
+    needs: vscodium
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - name: Check out editor sources
+        uses: actions/checkout@v4
+
+      - name: Download the extension package
+        uses: actions/download-artifact@v4
+        with:
+          name: sarlin-language-extension
+          path: release
+
+      - name: Publish a release when the extension version is new
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          version="$(jq --raw-output '.version' vscodium/package.json)"
+          tag="v$version"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "Release $tag already exists"
+            exit 0
+          fi
+          (cd release && sha256sum sarlin-language.vsix > sarlin-language.vsix.sha256)
+          gh release create "$tag" \
+            release/sarlin-language.vsix \
+            release/sarlin-language.vsix.sha256 \
+            --target "$GITHUB_SHA" \
+            --title "Sarlin Language $version" \
+            --notes "Sarlin language support for VSCodium and VS Code. Install it with: codium --install-extension sarlin-language.vsix"
