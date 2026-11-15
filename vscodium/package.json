@@ -2,9 +2,9 @@
   "name": "sarlin-language",
   "displayName": "Sarlin Language",
   "description": "Language support for Sarlin source files.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "publisher": "sarlin",
-  "license": "UNLICENSED",
+  "license": "MIT OR Apache-2.0",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -17,7 +17,7 @@
     "Themes"
   ],
   "scripts": {
-    "package": "vsce package --no-dependencies --allow-missing-repository --skip-license --out sarlin-language.vsix"
+    "package": "vsce package --no-dependencies --allow-missing-repository --out sarlin-language.vsix"
   },
   "devDependencies": {
     "@vscode/vsce": "3.6.2"

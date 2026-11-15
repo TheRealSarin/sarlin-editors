@@ -27,3 +27,7 @@ See [vscodium/README.md](vscodium/README.md) for everything the extension covers
 ## Releases
 
 Every push to `main` builds the extension. When the version in `vscodium/package.json` has no matching release yet, the build is published as a new release, so the download link above always points at the newest version.
+
+## License
+
+Available under your choice of the [MIT License](LICENSE-MIT) or the [Apache License 2.0](LICENSE-APACHE): `MIT OR Apache-2.0`.
