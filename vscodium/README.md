@@ -23,6 +23,12 @@ An `external C`, `external Cpp`, or `external Rust` block is highlighted with th
 
 An unrecognised language after `external` is marked invalid, matching the compiler, which accepts only `C`, `Cpp`, and `Rust`.
 
+## Colour picker
+
+Hex literals with exactly six digits (`0xRRGGBB`) or eight digits (`0xRRGGBBAA`) show a colour swatch in `.sar` files, and clicking it opens the colour picker. Literals with any other number of digits are left alone, as are matches inside strings, `#` comments, `###` block comments, and `external ... end external` blocks.
+
+Picking a colour rewrites the literal with uppercase digits and a `0x` prefix. A literal that had six digits stays at six digits while the colour is fully opaque; otherwise it is written with eight digits.
+
 ## File icons
 
 The `.sar` icon ships as a file icon theme named **Sarlin**. VS Code and VSCodium have no way to add a single icon to another theme, so the theme has to be selected to see it: **File > Preferences > Theme > File Icon Theme**, then choose **Sarlin**. Selecting it replaces the icons for every other file type, so this is opt-in.
