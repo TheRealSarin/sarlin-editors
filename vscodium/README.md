@@ -8,7 +8,7 @@ This extension provides file recognition, syntax colouring, bracket matching, au
 
 The grammar tracks the current language surface:
 
-- Declarations: `func`, `var`, `const`, `local`, `class`, `define`, `as`, `external`, `callable`, `signal`.
+- Declarations: `func`, `var`, `const`, `local`, `class`, `define`, `as`, `external`, `callable`, `signal`, and `take` on parameters.
 - Control flow: `if`, `else`, `while`, `for`, `in`, `to`, `break`, `continue`, `return`, `and`, `or`, `not`, `emit`.
 - Types: the integer and float widths, `bool`, `string`, `dictionary`, `callable`, `signal`, and `Time`.
 - Literals: integers, hexadecimal integers such as `0xFF8800`, floats, booleans, `null`, strings, and duration literals such as `01:30:00:000`.
