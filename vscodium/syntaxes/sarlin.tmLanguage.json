@@ -360,7 +360,7 @@
     },
     "builtinFunctions": {
       "name": "support.function.builtin.sarlin",
-      "match": "\\b(print|absolute|minimum|maximum|round_up|round_down|round|square_root|power)(?=\\s*\\()"
+      "match": "\\b(print|absolute|minimum|maximum|round_up|round_down|round|square_root|power|random_(?:u?int(?:8|16|32|64)|float(?:32|64)|seed))(?=\\s*\\()"
     },
     "memberFunctions": {
       "name": "support.function.member.sarlin",

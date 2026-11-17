@@ -14,6 +14,7 @@ The grammar tracks the current language surface:
 - Literals: integers, hexadecimal integers such as `0xFF8800`, floats, booleans, `null`, strings, and duration literals such as `01:30:00:000`.
 - Self reference: `self` inside class and define functions.
 - Callable shapes: `callable Action(value int32) int32` highlights the shape name as a type, and the name is highlighted as a type wherever it is used.
+- Built-in functions: `print`, the math functions, and the random functions such as `random_int32` and `random_seed`.
 - Standard namespaces: `file`, `directory`, `path`, `Time`, `JSON`, and `CSV`.
 - Comments: `#` line, `##` documentation, `###` block, and `####` file documentation.
 

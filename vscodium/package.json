@@ -2,7 +2,7 @@
   "name": "sarlin-language",
   "displayName": "Sarlin Language",
   "description": "Language support for Sarlin source files.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "publisher": "sarlin",
   "license": "MIT OR Apache-2.0",
   "engines": {
