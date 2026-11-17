@@ -364,7 +364,7 @@
     },
     "memberFunctions": {
       "name": "support.function.member.sarlin",
-      "match": "(?<=\\.)(length|is_empty|contains|add|insert|remove_at|clear|duplicate_deep|duplicate|get|remove|keys|values|to_upper|to_lower|trim|replace|split|starts_with|ends_with|new|connect|disconnect|exists|read|write|append_line|append|ensure|size|create|list|join|name|extension|parent|absolute|countdown|stopwatch|get_local|start|pause|resume|stop|restart|remaining|elapsed|running|paused|finished|parse|stringify)\\b"
+      "match": "(?<=\\.)(length|is_empty|contains|add|insert|remove_at|clear|duplicate_deep|duplicate|get|remove|keys|values|to_upper|to_lower|to_u?int(?:8|16|32|64)|to_float(?:32|64)|trim|replace|split|starts_with|ends_with|new|connect|disconnect|exists|read|write|append_line|append|ensure|size|create|list|join|name|extension|parent|absolute|countdown|stopwatch|get_local|start|pause|resume|stop|restart|remaining|elapsed|running|paused|finished|parse|stringify)\\b"
     },
     "functionCalls": {
       "name": "entity.name.function.call.sarlin",
