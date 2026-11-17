@@ -9,8 +9,8 @@ This extension provides file recognition, syntax colouring, bracket matching, au
 The grammar tracks the current language surface:
 
 - Declarations: `func`, `var`, `const`, `local`, `class`, `define`, `as`, `external`, `callable`, `signal`, and `take` on parameters.
-- Control flow: `if`, `else`, `while`, `for`, `in`, `to`, `break`, `continue`, `return`, `and`, `or`, `not`, `emit`.
-- Types: the integer and float widths, `bool`, `string`, `dictionary`, `callable`, `signal`, and `Time`.
+- Control flow: `if`, `else`, `while`, `for`, `in`, `to`, `break`, `continue`, `return`, `and`, `or`, `not`, `emit`, and the thread keywords `run` and `together`.
+- Types: the integer and float widths, `bool`, `string`, `dictionary`, `callable`, `signal`, `Time`, and `job`.
 - Literals: integers, hexadecimal integers such as `0xFF8800`, floats, booleans, `null`, strings, and duration literals such as `01:30:00:000`.
 - Self reference: `self` inside class and define functions.
 - Callable shapes: `callable Action(value int32) int32` highlights the shape name as a type, and the name is highlighted as a type wherever it is used.

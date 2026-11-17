@@ -320,7 +320,7 @@
     },
     "keywords": {
       "name": "keyword.control.sarlin",
-      "match": "\\b(if|else|while|for|in|break|continue|to|return|and|or|not|emit)\\b"
+      "match": "\\b(if|else|while|for|in|break|continue|to|return|and|or|not|emit|run|together)\\b"
     },
     "declarations": {
       "name": "keyword.declaration.sarlin",
@@ -328,7 +328,7 @@
     },
     "types": {
       "name": "storage.type.sarlin",
-      "match": "\\b(int8|int16|int32|int64|uint8|uint16|uint32|uint64|float32|float64|bool|string|dictionary|callable|signal|Time)\\b"
+      "match": "\\b(int8|int16|int32|int64|uint8|uint16|uint32|uint64|float32|float64|bool|string|dictionary|callable|signal|Time|job)\\b"
     },
     "booleans": {
       "name": "constant.language.boolean.sarlin",
@@ -364,7 +364,7 @@
     },
     "memberFunctions": {
       "name": "support.function.member.sarlin",
-      "match": "(?<=\\.)(length|is_empty|contains|add|insert|remove_at|clear|duplicate|get|remove|keys|values|to_upper|to_lower|to_u?int(?:8|16|32|64)|to_float(?:32|64)|trim|replace|split|starts_with|ends_with|new|connect|disconnect|exists|read|write|append_line|append|ensure|size|create|list|join|name|extension|parent|absolute|countdown|stopwatch|get_local|start|pause|resume|stop|restart|remaining|elapsed|running|paused|finished|parse|stringify)\\b"
+      "match": "(?<=\\.)(length|is_empty|contains|add|insert|remove_at|clear|duplicate|get|remove|keys|values|to_upper|to_lower|to_u?int(?:8|16|32|64)|to_float(?:32|64)|trim|replace|split|starts_with|ends_with|new|connect|disconnect|exists|read|write|append_line|append|ensure|size|create|list|join|name|extension|parent|absolute|countdown|stopwatch|get_local|start|pause|resume|stop|restart|wait|remaining|elapsed|running|paused|finished|parse|stringify)\\b"
     },
     "functionCalls": {
       "name": "entity.name.function.call.sarlin",
