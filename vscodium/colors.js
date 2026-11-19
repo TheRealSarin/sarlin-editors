@@ -19,7 +19,9 @@ function findHexColorsInLine(line, lineNumber) {
   let inString = false;
   for (let index = 0; index < line.length; index++) {
     const char = line[index];
-    if (char === '"') {
+    if (inString && char === '\\') {
+      index++;
+    } else if (char === '"') {
       inString = !inString;
     } else if (!inString && char === '#') {
       break;

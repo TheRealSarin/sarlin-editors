@@ -101,7 +101,17 @@
     "strings": {
       "name": "string.quoted.double.sarlin",
       "begin": "\"",
-      "end": "\""
+      "end": "\"|$",
+      "patterns": [
+        {
+          "name": "constant.character.escape.sarlin",
+          "match": "\\\\[ntr\\\\\"]"
+        },
+        {
+          "name": "invalid.illegal.unknown-escape.sarlin",
+          "match": "\\\\."
+        }
+      ]
     },
     "externalFunctions": {
       "patterns": [
@@ -328,7 +338,7 @@
     },
     "types": {
       "name": "storage.type.sarlin",
-      "match": "\\b(int8|int16|int32|int64|uint8|uint16|uint32|uint64|float32|float64|bool|string|dictionary|callable|signal|Time|job)\\b"
+      "match": "\\b(int8|int16|int32|int64|uint8|uint16|uint32|uint64|float32|float64|bool|string|dictionary|callable|signal|Time|TextBuilder|job)\\b"
     },
     "booleans": {
       "name": "constant.language.boolean.sarlin",
@@ -356,15 +366,15 @@
     },
     "standardNamespaces": {
       "name": "support.class.builtin.sarlin",
-      "match": "\\b(file|directory|path|Time|JSON|CSV)\\b(?=\\s*\\.)"
+      "match": "\\b(file|directory|path|Time|TextBuilder|JSON|CSV)\\b(?=\\s*\\.)"
     },
     "builtinFunctions": {
       "name": "support.function.builtin.sarlin",
-      "match": "\\b(print|absolute|minimum|maximum|round_up|round_down|round|square_root|power|random_(?:u?int(?:8|16|32|64)|float(?:32|64)|seed))(?=\\s*\\()"
+      "match": "\\b(print|write|absolute|minimum|maximum|round_up|round_down|round|square_root|power|random_(?:u?int(?:8|16|32|64)|float(?:32|64)|seed))(?=\\s*\\()"
     },
     "memberFunctions": {
       "name": "support.function.member.sarlin",
-      "match": "(?<=\\.)(length|is_empty|contains|add|insert|remove_at|clear|duplicate|get|remove|keys|values|to_upper|to_lower|to_u?int(?:8|16|32|64)|to_float(?:32|64)|trim|replace|split|starts_with|ends_with|new|connect|disconnect|exists|read|write|append_line|append|ensure|size|create|list|join|name|extension|parent|absolute|countdown|stopwatch|get_local|start|pause|resume|stop|restart|wait|remaining|elapsed|running|paused|finished|parse|stringify)\\b"
+      "match": "(?<=\\.)(length|is_empty|contains|add|insert|remove_at|clear|duplicate|get|remove|keys|values|to_upper|to_lower|to_u?int(?:8|16|32|64)|to_float(?:32|64)|trim|replace|split|to_bytes|to_text|add_line|reserve|build|read_bytes|write_bytes|starts_with|ends_with|new|connect|disconnect|exists|read|write|append_line|append|ensure|size|create|list|join|name|extension|parent|absolute|countdown|stopwatch|get_local|start|pause|resume|stop|restart|wait|remaining|elapsed|running|paused|finished|parse|stringify)\\b"
     },
     "functionCalls": {
       "name": "entity.name.function.call.sarlin",

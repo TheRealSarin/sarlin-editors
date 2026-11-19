@@ -10,12 +10,12 @@ The grammar tracks the current language surface:
 
 - Declarations: `func`, `var`, `const`, `local`, `class`, `define`, `as`, `external`, `callable`, `signal`, and `take` on parameters.
 - Control flow: `if`, `else`, `while`, `for`, `in`, `to`, `break`, `continue`, `return`, `and`, `or`, `not`, `emit`, and the thread keywords `run` and `together`.
-- Types: the integer and float widths, `bool`, `string`, `dictionary`, `callable`, `signal`, `Time`, and `job`.
-- Literals: integers, hexadecimal integers such as `0xFF8800`, floats, booleans, `null`, strings, and duration literals such as `01:30:00:000`.
+- Types: the integer and float widths, `bool`, `string`, `dictionary`, `callable`, `signal`, `Time`, `TextBuilder`, and `job`.
+- Literals: integers, hexadecimal integers such as `0xFF8800`, floats, booleans, `null`, strings, and duration literals such as `01:30:00:000`. Inside strings the escapes `\n`, `\t`, `\r`, `\\` and `\"` are highlighted, and any other backslash sequence is marked invalid, matching the compiler.
 - Self reference: `self` inside class and define functions.
 - Callable shapes: `callable Action(value int32) int32` highlights the shape name as a type, and the name is highlighted as a type wherever it is used.
-- Built-in functions: `print`, the math functions, the random functions such as `random_int32` and `random_seed`, and the text conversions such as `to_int32` and `to_float64`.
-- Standard namespaces: `file`, `directory`, `path`, `Time`, `JSON`, and `CSV`.
+- Built-in functions: `print`, `write`, the math functions, the random functions such as `random_int32` and `random_seed`, and the text conversions such as `to_int32` and `to_float64`.
+- Standard namespaces: `file`, `directory`, `path`, `Time`, `TextBuilder`, `JSON`, and `CSV`.
 - Comments: `#` line, `##` documentation, `###` block, and `####` file documentation.
 
 ### Embedded foreign functions
