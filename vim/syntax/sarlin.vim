@@ -60,6 +60,7 @@ endfunction
 let s:head = 'contains=sarlinExternalBadLang,sarlinExternalLang,sarlinDeclaration,sarlinFunctionName,sarlinParameter,sarlinType'
 execute 'syn match sarlinExternalHead "^\s*external\s\+\h\w*\s\+func\>.*$" ' . s:head
 syn match sarlinExternalEnd "^\s*end\s\+external\s*$"
+syn match sarlinExternalImport "^\s*external\s\+C\ze\s\+\"" contains=sarlinDeclaration,sarlinExternalLang
 
 for [s:name, s:file] in [['C', 'c'], ['Cpp', 'cpp'], ['Rust', 'rust']]
   let s:body = !get(g:, 'sarlin_no_embedded', 0) && s:Embed('sarlin' . s:name, s:file) ? '@sarlin' . s:name : 'NONE'

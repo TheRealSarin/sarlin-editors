@@ -51,6 +51,9 @@ if getline(1, '$') !=# s:expected
   call add(s:failures, 'reindenting changed the sample')
 endif
 
+call s:Expect(40, 1, 'sarlinDeclaration')
+call s:Expect(40, 10, 'sarlinExternalLang')
+call s:Expect(40, 12, 'sarlinString')
 if empty(s:failures)
   qall!
 endif

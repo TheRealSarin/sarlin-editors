@@ -116,6 +116,9 @@
     "externalFunctions": {
       "patterns": [
         {
+          "include": "#externalImport"
+        },
+        {
           "include": "#externalFunctionC"
         },
         {
@@ -128,6 +131,20 @@
           "include": "#externalFunctionUnknown"
         }
       ]
+    },
+    "externalImport": {
+      "match": "^\\s*(external)\\s+(C)\\s+(\"[^\"]*\")",
+      "captures": {
+        "1": {
+          "name": "keyword.control.external.sarlin"
+        },
+        "2": {
+          "name": "entity.name.class.external-language.sarlin"
+        },
+        "3": {
+          "name": "string.quoted.double.header.sarlin"
+        }
+      }
     },
     "externalFunctionC": {
       "begin": "^\\s*(external)\\s+(C)\\s+(func)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*(?=\\()",

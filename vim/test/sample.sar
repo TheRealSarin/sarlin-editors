@@ -36,3 +36,5 @@ func make() {
         x: 5
     )
 }
+
+external C "math.h"

@@ -22,6 +22,8 @@ The grammar tracks the current language surface:
 
 An `external C`, `external Cpp`, or `external Rust` block is highlighted with the host language's own grammar between its declaration line and its `end external` line, so a C body reads as C and a Rust body reads as Rust. C and C++ use the grammars that ship with the editor. Rust bodies fall back to plain text unless a Rust extension is installed.
 
+A C header import (`external C "raylib.h"`) highlights `external`, the language and the header name.
+
 An unrecognised language after `external` is marked invalid, matching the compiler, which accepts only `C`, `Cpp`, and `Rust`.
 
 ## Colour picker
