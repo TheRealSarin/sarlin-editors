@@ -39,6 +39,19 @@ jobs:
           path: vscodium/sarlin-language.vsix
           if-no-files-found: error
 
+  vim:
+    name: Check the Vim plugin
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out editor sources
+        uses: actions/checkout@v4
+
+      - name: Install Vim
+        run: sudo apt-get update && sudo apt-get install --yes vim
+
+      - name: Run the highlighting and indentation checks
+        run: vim -Nu NONE -i NONE -es -S vim/test/check.vim < /dev/null
+
   publish:
     name: Publish the extension release
     needs: vscodium

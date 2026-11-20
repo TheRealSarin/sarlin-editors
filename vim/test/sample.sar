@@ -1,0 +1,38 @@
+#### File documentation
+external C func c_add(left int32, right int32) int32
+    return left + right;
+end external
+
+external Rust func rust_mul(left int32, right int32) int32
+    left * right
+end external
+
+external Go func go_thing() int32
+end external
+
+###
+block comment
+###
+
+## Adds things
+class Point {
+    var x int32 = 0x00FF88
+}
+
+callable Action(value int32) int32
+
+func main() {
+    var text string = "a\nb\q"
+    var wait_for Time = 01:30:00
+    if true and not false {
+        print(file.exists("x"))
+    } else {
+        emit changed
+    }
+}
+
+func make() {
+    local var bob Point = Point.new(
+        x: 5
+    )
+}
