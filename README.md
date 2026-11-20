@@ -20,13 +20,50 @@ See [vscodium/README.md](vscodium/README.md) for everything the extension covers
 
 ## Vim and Neovim
 
-The `vim` folder is a Vim and Neovim plugin that recognises `.sar` files and provides syntax colouring, indentation, and comment settings. With vim-plug:
+The plugin in the [`vim`](vim) folder recognises `.sar` files and provides syntax colouring, embedded C, C++ and Rust colouring inside `external` blocks, indentation, comment settings, and folding. It installs straight from this repository; there is no separate download.
+
+vim-plug, in `~/.vimrc` or `init.vim`, then run `:PlugInstall`:
 
 ```vim
 Plug 'TheRealSarin/sarlin-editors', { 'rtp': 'vim' }
 ```
 
-See [vim/README.md](vim/README.md) for other plugin managers and manual installation.
+lazy.nvim, as a plugin spec:
+
+```lua
+{
+  'TheRealSarin/sarlin-editors',
+  config = function(plugin)
+    vim.opt.rtp:append(plugin.dir .. '/vim')
+  end,
+}
+```
+
+Without a plugin manager, clone the repository and link the `vim` folder into Vim's package directory:
+
+```sh
+git clone https://github.com/TheRealSarin/sarlin-editors.git ~/.local/share/sarlin-editors
+mkdir -p ~/.vim/pack/sarlin/start
+ln -s ~/.local/share/sarlin-editors/vim ~/.vim/pack/sarlin/start/sarlin
+```
+
+For Neovim, link it into `~/.local/share/nvim/site/pack/sarlin/start` instead. Update later with `git -C ~/.local/share/sarlin-editors pull`.
+
+Vim also needs these two lines in `~/.vimrc`; Neovim enables both by default:
+
+```vim
+filetype plugin indent on
+syntax enable
+```
+
+Open any `.sar` file and run `:set filetype?`; it should print `filetype=sarlin`. See [vim/README.md](vim/README.md) for everything the plugin covers.
+
+## Repository layout
+
+| Folder | Contents |
+| --- | --- |
+| [`vscodium`](vscodium) | The VSCodium and VS Code extension, packaged as `sarlin-language.vsix` |
+| [`vim`](vim) | The Vim and Neovim plugin, used directly from the repository |
 
 ## Links
 

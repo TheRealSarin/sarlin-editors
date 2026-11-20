@@ -4,36 +4,7 @@ Vim and Neovim support for `.sar` source files: file type detection, syntax colo
 
 ## Install
 
-The plugin lives in the `vim` folder of this repository, so point your plugin manager at that folder.
-
-vim-plug:
-
-```vim
-Plug 'TheRealSarin/sarlin-editors', { 'rtp': 'vim' }
-```
-
-lazy.nvim:
-
-```lua
-{
-  'TheRealSarin/sarlin-editors',
-  config = function(plugin)
-    vim.opt.rtp:append(plugin.dir .. '/vim')
-  end,
-}
-```
-
-Without a plugin manager, clone the repository and link the folder into a package directory:
-
-```sh
-git clone https://github.com/TheRealSarin/sarlin-editors.git ~/.local/share/sarlin-editors
-mkdir -p ~/.vim/pack/sarlin/start
-ln -s ~/.local/share/sarlin-editors/vim ~/.vim/pack/sarlin/start/sarlin
-```
-
-For Neovim use `~/.local/share/nvim/site/pack/sarlin/start` instead of `~/.vim/pack/sarlin/start`.
-
-Vim needs `filetype plugin indent on` and `syntax enable` in `~/.vimrc`. Neovim enables both by default.
+See [Vim and Neovim](../README.md#vim-and-neovim) in the repository README for vim-plug, lazy.nvim, and manual installation.
 
 ## What it covers
 
